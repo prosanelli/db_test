@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150612201704) do
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id", limit: 4
+    t.integer "user_id", limit: 8
     t.text    "comment", limit: 65535
   end
 
