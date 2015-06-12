@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+example of rake db:test:prepare failing due to mismatched database columns (int vs bigint) because rails doesnt have a way to assign column type to primary key
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* this is a bare bones app - i only added the migrations and mysql gem
+* to test
+**  rake db:create
+** rake db:migrate
+** rake db:test:prepare --trace
+** success!
+** in db/schema.rb change posts.user_id from limit: 4 => limit: 8
+** rake db:test:prepare --trace
+** fail: (errno: 150): ALTER TABLE `posts` ADD CONSTRAINT `fk_rails_5b5ddfd518` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
