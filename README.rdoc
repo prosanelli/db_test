@@ -4,12 +4,12 @@ example of rake db:test:prepare failing due to mismatched database columns (int 
 
 * this is a bare bones app - i only added the migrations and mysql gem
 * to test
-**  rake db:create
-** rake db:migrate
-** rake db:test:prepare --trace
-** success!
-** in db/schema.rb change posts.user_id from limit: 4 => limit: 8
-** rake db:test:prepare --trace
-** fail: (errno: 150): ALTER TABLE `posts` ADD CONSTRAINT `fk_rails_5b5ddfd518` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+1. rake db:create
+2. rake db:migrate
+3. rake db:test:prepare --trace
+4. success!
+5. in db/schema.rb change posts.user_id from limit: 4 => limit: 8
+6. rake db:test:prepare --trace
+7. fail: (errno: 150): ALTER TABLE `posts` ADD CONSTRAINT `fk_rails_5b5ddfd518` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 
 
